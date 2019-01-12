@@ -22,7 +22,7 @@ import frc.robot.subsystems.Drivebase;
 
 
 public class Robot extends TimedRobot {
-  TalonSRX mytalon = new TalonSRX(0);
+  //TalonSRX mytalon = new TalonSRX(0);
 
   public static OI oi;
   public static Drivebase drivebase;
