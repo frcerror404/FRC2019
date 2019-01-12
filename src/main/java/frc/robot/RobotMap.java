@@ -11,6 +11,8 @@ public enum RobotMap {
     //PWM Motor Mappings
     LEFT_MOTOR(0), 
     RIGHT_MOTOR(1),
+    LEFT_FOLLOW_MOTOR(2),
+    RIGHT_FOLLOW_MOTOR(3),
     //Control Mappings
     LEFT_JOYSTICK(0),
     RIGHT_JOYSTICK(1);
