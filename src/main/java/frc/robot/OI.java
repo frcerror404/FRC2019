@@ -20,7 +20,6 @@ public class OI {
   public double getLeftJoyX(){
     double raw= LEFT_JOY.getX();
     return Math.abs(raw)< JOY_DEADZONE? 0.0: raw;
-
   }
   public double getLeftJoyY(){
     double raw= LEFT_JOY.getY();

@@ -19,9 +19,9 @@ import frc.robot.commands.TankDrive;
 public class Drivebase extends Subsystem {
 
   private Spark LeftMotor;
-  private Spark LeftMotorFollower;
+  //private Spark LeftMotorFollower;
   private Spark RightMotor;
-  private Spark RightMotorFollower;
+  //private Spark RightMotorFollower;
 
   /*
   private TalonSRX LeftMotor;
@@ -32,9 +32,9 @@ public class Drivebase extends Subsystem {
 
   public Drivebase() {
     LeftMotor = new Spark(RobotMap.LEFT_MOTOR.value);
-    LeftMotorFollower = new Spark (RobotMap.LEFT_MOTOR.value);
+    //LeftMotorFollower = new Spark (RobotMap.LEFT_MOTOR.value);
     RightMotor = new Spark(RobotMap.RIGHT_MOTOR.value);
-    RightMotorFollower = new Spark(RobotMap.RIGHT_MOTOR.value);
+    //RightMotorFollower = new Spark(RobotMap.RIGHT_MOTOR.value);
     
     /*
     LeftMotor = new TalonSRX(RobotMap.LEFT_MOTOR.value);
@@ -53,9 +53,11 @@ public class Drivebase extends Subsystem {
   
   public void setRaw(double leftvalue, double rightvalue){
     LeftMotor.set(leftvalue);
-    LeftMotorFollower.set(leftvalue);
+    //LeftMotorFollower.set(leftvalue);
     RightMotor.set(rightvalue);
-    RightMotorFollower.set(rightvalue);
+    //RightMotorFollower.set(rightvalue);
+
+
     /*
   public void set(ControlMode mode,double leftvalue, double rightvalue) {
     LeftMotor.set(mode, leftvalue);

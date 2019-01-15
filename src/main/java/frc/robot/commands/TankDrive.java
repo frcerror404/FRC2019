@@ -21,9 +21,10 @@ public class TankDrive extends Command {
   }
 
   protected void execute() {
-    double throttle=(1.0- Robot.oi.LEFT_JOY.getThrottle()) /-2.0;
-    
-    Robot.drivebase.setRaw(Robot.oi.getLeftJoyY()*throttle, Robot.oi.getRightJoyY()* throttle);
+    double LeftThrottle = (1.0- Robot.oi.LEFT_JOY.getThrottle()) /-2.0;
+    double RightThrottle=(1.0- Robot.oi.RIGHT_JOY.getThrottle()) /-2.0;
+
+    Robot.drivebase.setRaw(Robot.oi.getLeftJoyY() * LeftThrottle, Robot.oi.getRightJoyY() * RightThrottle);
   }
 
   protected boolean isFinished() {
