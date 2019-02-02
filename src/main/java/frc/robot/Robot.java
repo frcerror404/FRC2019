@@ -18,19 +18,26 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.subsystems.Arm;
+import frc.robot.subsystems.Claw;
 import frc.robot.subsystems.Drivebase;
+import frc.robot.subsystems.Hook;
+import frc.robot.subsystems.Winch;
 
 
 public class Robot extends TimedRobot {
-  //TalonSRX mytalon = new TalonSRX(0);
 
   public static OI oi;
   public static Drivebase drivebase;
-  
+  public static Claw claw = new Claw();
+  public static Winch winch = new Winch();
+  public static Hook hook = new Hook();
+  public static Arm arm = new Arm();
+
   @Override
   public void robotInit() {
     oi = new OI();
-    drivebase=new Drivebase();
+    drivebase = new Drivebase();
   }
 
   @Override
