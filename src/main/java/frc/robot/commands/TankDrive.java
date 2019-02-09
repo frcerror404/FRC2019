@@ -7,8 +7,6 @@
 
 package frc.robot.commands;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
@@ -22,7 +20,7 @@ public class TankDrive extends Command {
 
   protected void execute() {
 
-    Robot.drivebase.setRaw(Robot.oi.Player1.getNormalizedLeftY(), Robot.oi.Player1.getNormalizedRightY());
+    Robot.drivebase.setRaw(Robot.oi.Player1.getNormalizedX(), Robot.oi.Player1.getNormalizedY(), Robot.oi.Player1.getNormalizedZ());
   }
 
   protected boolean isFinished() {

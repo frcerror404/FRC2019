@@ -7,12 +7,8 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.TankDrive;
 
@@ -26,9 +22,9 @@ public class Drivebase extends Subsystem {
     RightMotor = new Spark(RobotMap.RIGHT_SIDE.value);
   }
   
-  public void setRaw(double leftvalue, double rightvalue){
-    LeftMotor.set(leftvalue);
-    RightMotor.set(rightvalue);
+  public void setRaw(double x, double y, double z){
+    LeftMotor.set(y + z);
+    RightMotor.set(-y + z);
   }
 
   @Override

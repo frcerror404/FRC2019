@@ -10,13 +10,14 @@ package frc.robot;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.models.LogitechController;
+import frc.robot.models.LogitechExtreme;
 import frc.robot.commands.*;
 
 public class OI {
 
 
   public static final double JOY_DEADZONE=0.05;
-  public LogitechController Player1 = new LogitechController(0);
+  public LogitechExtreme Player1 = new LogitechExtreme(0);
   public LogitechController Player2 = new LogitechController(1);
   Button intakeOut = new JoystickButton(Player2, 6),
          intakeIn = new JoystickButton(Player2, 5),

@@ -12,18 +12,12 @@ import com.ctre.phoenix.motorcontrol.InvertType;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-//import com.ctre
 
-/**
- * Add your docs here.
- */
-public class Claw extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
+public class Elevator extends Subsystem {
   VictorSPX mLeft = new VictorSPX(1);
   VictorSPX mRight = new VictorSPX(2);
 
-  public Claw() {
+  public Elevator() {
     this.mLeft.follow(this.mRight);
     this.mLeft.setInverted(InvertType.OpposeMaster);
   }
@@ -34,11 +28,12 @@ public class Claw extends Subsystem {
     // setDefaultCommand(new MySpecialCommand());
   }
 
-  public void setIntakeSpeed(double intakeSpeed) { 
+  public void SetIntakeSpeed(double intakeSpeed){
     this.mRight.set(ControlMode.PercentOutput, intakeSpeed);
   }
 
-  public void setOutputSpeed(double outputSpeed) {
+  public void SetOutputSpeed(double outputSpeed){
     this.mRight.set(ControlMode.PercentOutput, outputSpeed);
   }
+
 }

@@ -15,7 +15,7 @@ public class SetIntakeSpeed extends Command {
 
   public SetIntakeSpeed(double speed) { 
     this.speed = speed;
-    requires(Robot.claw);
+    requires(Robot.elevator);
   }
 
   // Called just before this Command runs the first time
@@ -27,7 +27,7 @@ public class SetIntakeSpeed extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.claw.setIntakeSpeed(this.speed);
+    Robot.elevator.SetIntakeSpeed(this.speed);
     
   }
 

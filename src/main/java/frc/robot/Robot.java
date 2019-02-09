@@ -7,20 +7,12 @@
 
 package frc.robot;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
-import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
-import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.Arm;
-import frc.robot.subsystems.Claw;
 import frc.robot.subsystems.Drivebase;
+import frc.robot.subsystems.DrivebaseMecanum;
+import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Hook;
 import frc.robot.subsystems.Winch;
 
@@ -29,10 +21,11 @@ public class Robot extends TimedRobot {
 
   public static OI oi;
   public static Drivebase drivebase;
-  public static Claw claw = new Claw();
+  public static DrivebaseMecanum drivebaseMecanum = new DrivebaseMecanum();
   public static Winch winch = new Winch();
   public static Hook hook = new Hook();
   public static Arm arm = new Arm();
+  public static Elevator elevator = new Elevator();
 
   @Override
   public void robotInit() {
