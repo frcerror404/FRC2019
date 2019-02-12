@@ -10,25 +10,22 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class SetIntakeSpeed extends Command {
-  double speed = 0.0;
-
-  public SetIntakeSpeed(double speed) { 
+public class WristBackward extends Command {
+  double speed = 0;
+  public WristBackward(double speed) {
     this.speed = speed;
-    requires(Robot.claw);
+    requires(Robot.wrist);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.claw.SetIntakeSpeed(this.speed);
-    
+    Robot.wrist.WristBackward(this.speed);
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -9,12 +9,13 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.DrivebaseMecanum;
 import frc.robot.subsystems.Elevator;
+import frc.robot.subsystems.Claw;
 import frc.robot.subsystems.Hook;
 import frc.robot.subsystems.Winch;
+import frc.robot.subsystems.Wrist;
 
 
 public class Robot extends TimedRobot {
@@ -24,8 +25,9 @@ public class Robot extends TimedRobot {
   public static DrivebaseMecanum drivebaseMecanum = new DrivebaseMecanum();
   public static Winch winch = new Winch();
   public static Hook hook = new Hook();
-  public static Arm arm = new Arm();
+  public static Claw claw = new Claw();
   public static Elevator elevator = new Elevator();
+  public static Wrist wrist = new Wrist();
 
   @Override
   public void robotInit() {

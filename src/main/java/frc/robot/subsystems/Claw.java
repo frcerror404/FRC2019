@@ -8,17 +8,18 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.InvertType;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-/**
- * Add your docs here.
- */
-public class Arm extends Subsystem {
-  VictorSPX mRight = new VictorSPX(5);
+public class Claw extends Subsystem {
+  VictorSPX mLeft = new VictorSPX(1);
+  VictorSPX mRight = new VictorSPX(2);
 
-  public Arm() {
+  public Claw() {
+    this.mLeft.follow(this.mRight);
+    this.mLeft.setInverted(InvertType.OpposeMaster);
   }
 
   @Override
@@ -27,7 +28,12 @@ public class Arm extends Subsystem {
     // setDefaultCommand(new MySpecialCommand());
   }
 
-  public void ArmSpeed(double speed){
-    this.mRight.set(ControlMode.PercentOutput, speed);
+  public void SetIntakeSpeed(double intakeSpeed){
+    this.mRight.set(ControlMode.PercentOutput, intakeSpeed);
   }
+
+  public void SetOutputSpeed(double outputSpeed){
+    this.mRight.set(ControlMode.PercentOutput, outputSpeed);
+  }
+
 }

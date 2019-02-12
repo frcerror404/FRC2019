@@ -25,6 +25,7 @@ public class OI {
          hook = new JoystickButton(Player2, 3),
          armDown = new JoystickButton(Player2, 2),
          armUp = new JoystickButton(Player2, 1);
+         // Add Wrist
 
   public OI(){
     intakeIn.whenPressed(new SetIntakeSpeed(0.4));
@@ -35,10 +36,6 @@ public class OI {
     winch.whenReleased(new SetWinchSpeed(0.0));
     hook.whenPressed(new SetHookSpeed(0.2));
     hook.whenReleased(new SetHookSpeed(0.0));
-    armUp.whenPressed(new ArmSpeed(0.4));
-    armUp.whenReleased(new ArmSpeed(0.0));
-    armDown.whenPressed(new ArmSpeed(-0.4));
-    armDown.whenReleased(new ArmSpeed(0.0));
   }
 }
   

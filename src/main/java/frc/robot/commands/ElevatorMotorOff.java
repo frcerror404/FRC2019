@@ -7,15 +7,15 @@
 
 package frc.robot.commands;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class ArmSpeed extends Command {
-  double speed = 0.0;
+public class ElevatorMotorOff extends Command {
 
-  public ArmSpeed(double speed) {
-    this.speed = speed;
-    requires(Robot.arm);
+  public ElevatorMotorOff() {
+    requires(Robot.elevator);
   }
 
   // Called just before this Command runs the first time
@@ -26,7 +26,7 @@ public class ArmSpeed extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.arm.ArmSpeed(this.speed);
+    Robot.elevator.mElevator.set(ControlMode.PercentOutput, 0);
   }
 
   // Make this return true when this Command no longer needs to run execute()

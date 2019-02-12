@@ -15,12 +15,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  * Add your docs here.
  */
-public class Elevator extends Subsystem {
-  /**
-   * Elevator motors
-   */
-
-  public VictorSPX mElevator = new VictorSPX(1);
+public class Wrist extends Subsystem {
+  VictorSPX mWrist = new VictorSPX(1);
 
   @Override
   public void initDefaultCommand() {
@@ -28,7 +24,11 @@ public class Elevator extends Subsystem {
     // setDefaultCommand(new MySpecialCommand());
   }
 
-  public void ElevatorMotorOff(double speed) {
-    this.mElevator.set(ControlMode.PercentOutput, speed);
+  public void WristForward(double speed) {
+    mWrist.set(ControlMode.PercentOutput, speed);
+  }
+
+  public void WristBackward(double speed) {
+    mWrist.set(ControlMode.PercentOutput, speed);
   }
 }

@@ -8,9 +8,11 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import frc.robot.commands.ElevatorMotorOff;
 
 /**
  * Add your docs here.
@@ -23,17 +25,20 @@ public class ElevatorPID extends PIDSubsystem {
 
   public ElevatorPID() {
     // Intert a subsystem name and PID values here
-    super("SubsystemName", 1, 2, 3);
+    super("ElevatorPID", 1.0, 1.0, 1.0);
     // Use these to get going:
     // setSetpoint() - Sets where the PID controller should move the system
     // to
     // enable() - Enables the PID controller.
+    setAbsoluteTolerance(0.05);
+    getPIDController().setContinuous(true);
+    setInputRange(0, 500);
+    //mElevator.configSelectedFeedbackSensor(FeedbackDevice);
   }
 
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new ElevatorMotorOff());
   }
 
   /**
