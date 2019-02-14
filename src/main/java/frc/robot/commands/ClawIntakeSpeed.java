@@ -10,10 +10,10 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class SetOutputSpeed extends Command {
+public class ClawIntakeSpeed extends Command {
   double speed = 0.0;
 
-  public SetOutputSpeed(double speed) {
+  public ClawIntakeSpeed(double speed) { 
     this.speed = speed;
     requires(Robot.claw);
   }
@@ -21,12 +21,14 @@ public class SetOutputSpeed extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.claw.SetOutputSpeed(speed);
+    Robot.claw.ClawIntakeSpeed(this.speed);
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()

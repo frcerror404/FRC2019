@@ -16,6 +16,7 @@ public enum RobotMap {
     RIGHT_JOYSTICK(0),
     LEFT_JOYSTICK(5);
 
+
     public final int value;
 
     RobotMap(int value)

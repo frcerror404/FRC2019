@@ -11,21 +11,21 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.commands.GroundIntakeSpeed;
 
 /**
  * Add your docs here.
  */
-public class Wrist extends Subsystem {
-  VictorSPX mWrist = new VictorSPX(1);
+public class GroundIntakeFront extends Subsystem {
+  VictorSPX mGroundIntake = new VictorSPX(1);
 
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new GroundIntakeSpeed(0));
   }
 
-  public void WristSpeed(double speed) {
-    mWrist.set(ControlMode.PercentOutput, speed);
+  public void GroundIntakeSpeed(double speed) {
+    this.mGroundIntake.set(ControlMode.PercentOutput, speed);
   }
 
 }

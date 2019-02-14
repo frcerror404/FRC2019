@@ -7,6 +7,9 @@
 
 package frc.robot.subsystems;
 
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
@@ -14,12 +17,12 @@ import frc.robot.commands.TankDrive;
 
 public class Drivebase extends Subsystem {
 
-  private Spark LeftMotor;
-  private Spark RightMotor;
+  CANSparkMax LeftMotor;
+  CANSparkMax RightMotor;
 
   public Drivebase() {
-    LeftMotor = new Spark(RobotMap.LEFT_SIDE.value);
-    RightMotor = new Spark(RobotMap.RIGHT_SIDE.value);
+    LeftMotor = new CANSparkMax(RobotMap.LEFT_SIDE.value, MotorType.kBrushless);
+    RightMotor = new CANSparkMax(RobotMap.RIGHT_SIDE.value, MotorType.kBrushless);
   }
   
   public void setRaw(double x, double y, double z){

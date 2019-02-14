@@ -12,9 +12,11 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class ElevatorMotorOff extends Command {
+public class ElevatorMotorSpeed extends Command {
+  double speed = 0.0;
 
-  public ElevatorMotorOff() {
+  public ElevatorMotorSpeed(double speed) {
+    this.speed = speed;
     requires(Robot.elevator);
   }
 

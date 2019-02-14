@@ -7,24 +7,27 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Spark;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.commands.LiftSpeed;
 
 /**
  * Add your docs here.
  */
-public class Hook extends Subsystem {
-  Spark mRight = new Spark(2);
 
-  public Hook (){
-
-  }
+ // NEEDS TO BE PID
+public class FrontIntakeLift extends Subsystem {
+  CANSparkMax mFrontIntakeLift = new CANSparkMax(1, MotorType.kBrushless);
 
   @Override
   public void initDefaultCommand() {
+    setDefaultCommand(new LiftSpeed(0));
   }
 
-  public void setHookSpeed (double speed){
-    this.mRight.set(speed);
+  public void LiftSpeed(double speed) {
+    this.mFrontIntakeLift.set(speed);
   }
+
 }

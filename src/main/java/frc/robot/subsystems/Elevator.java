@@ -10,25 +10,38 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
+import edu.wpi.first.wpilibj.PIDController;
+import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.commands.ElevatorMotorSpeed;
 
 /**
  * Add your docs here.
  */
-public class Elevator extends Subsystem {
+public class Elevator extends Subsystem implements PIDOutput{
   /**
    * Elevator motors
    */
 
   public VictorSPX mElevator = new VictorSPX(1);
 
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+  //public final PIDController pidcontroller;
+
+  public Elevator() {
+    //pidcontroller = new PIDController(0, 0, 0, source, this);
   }
 
-  public void ElevatorMotorOff(double speed) {
+  @Override
+  public void initDefaultCommand() {
+    setDefaultCommand(new ElevatorMotorSpeed(0));
+  }
+
+  public void ElevatorMotorSpeed(double speed) {
     this.mElevator.set(ControlMode.PercentOutput, speed);
+  }
+
+  @Override
+  public void pidWrite(double output) {
+    this.mElevator.set(ControlMode.PercentOutput, output);
   }
 }

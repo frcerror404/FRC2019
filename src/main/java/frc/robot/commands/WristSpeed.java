@@ -10,9 +10,9 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class WristBackward extends Command {
+public class WristSpeed extends Command {
   double speed = 0;
-  public WristBackward(double speed) {
+  public WristSpeed(double speed) {
     this.speed = speed;
     requires(Robot.wrist);
   }
@@ -25,7 +25,7 @@ public class WristBackward extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.wrist.WristBackward(this.speed);
+    Robot.wrist.WristSpeed(this.speed);
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -7,32 +7,26 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.InvertType;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.commands.LiftSpeed;
 
 /**
  * Add your docs here.
  */
-public class Winch extends Subsystem {
-  VictorSPX mLeft = new VictorSPX(3);
-  VictorSPX mRight = new VictorSPX(4);
 
-  public Winch() {
-    this.mRight.setInverted(InvertType.InvertMotorOutput);
-    this.mLeft.follow(this.mRight);
-    this.mLeft.setInverted(InvertType.OpposeMaster);
-  }
+// NEEDS TO BE PID
+public class BackIntakeLift extends Subsystem {
+  CANSparkMax mBackIntakeLift = new CANSparkMax(2, MotorType.kBrushless);
 
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new LiftSpeed(0));
   }
 
-  public void setWinchSpeed(double speed) {
-    this.mRight.set(ControlMode.PercentOutput, speed);
+  public void LiftSpeed(double speed) {
+    this.mBackIntakeLift.set(speed);
   }
 }

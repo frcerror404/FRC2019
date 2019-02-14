@@ -12,6 +12,7 @@ import com.ctre.phoenix.motorcontrol.InvertType;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.commands.ClawIntakeSpeed;;
 
 public class Claw extends Subsystem {
   VictorSPX mLeft = new VictorSPX(1);
@@ -24,16 +25,11 @@ public class Claw extends Subsystem {
 
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new ClawIntakeSpeed(0));
   }
 
-  public void SetIntakeSpeed(double intakeSpeed){
+  public void ClawIntakeSpeed(double intakeSpeed){
     this.mRight.set(ControlMode.PercentOutput, intakeSpeed);
-  }
-
-  public void SetOutputSpeed(double outputSpeed){
-    this.mRight.set(ControlMode.PercentOutput, outputSpeed);
   }
 
 }
