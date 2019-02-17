@@ -17,7 +17,7 @@ public class ElevatorMotorSpeed extends Command {
 
   public ElevatorMotorSpeed(double speed) {
     this.speed = speed;
-    //requires(Robot.elevator);
+    requires(Robot.elevator);
   }
 
   // Called just before this Command runs the first time

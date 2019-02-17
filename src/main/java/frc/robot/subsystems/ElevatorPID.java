@@ -23,7 +23,7 @@ public class ElevatorPID extends PIDSubsystem {
   /**
    * Insert motors here.
    */
-  VictorSPX mElevator = new VictorSPX(1);
+  VictorSPX mElevator = new VictorSPX(21);
 
   public ElevatorPID() {
     // Insert a subsystem name and PID values here
@@ -32,7 +32,7 @@ public class ElevatorPID extends PIDSubsystem {
     // setSetpoint() - Sets where the PID controller should move the system
     // to
     // enable() - Enables the PID controller.
-    setSetpoint(Robot.oi.Player1.getNormalizedY());
+    setSetpoint(0);
     setAbsoluteTolerance(0.05);
     getPIDController().setContinuous(false);
     setInputRange(0, 1000);

@@ -24,8 +24,8 @@ public class Robot extends TimedRobot {
   //public static Drivebase drivebase;
   public static DrivebaseMecanum drivebaseMecanum;
   public static Claw claw = new Claw();
-  //public static Elevator elevator = new Elevator();
-  //public static Wrist wrist = new Wrist();
+  public static Elevator elevator = new Elevator();
+  public static Wrist wrist = new Wrist();
   public static GroundIntakeFront groundintakefront = new GroundIntakeFront();
   public static FrontIntakeLift frontintakelift = new FrontIntakeLift();
 
@@ -41,6 +41,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void disabledInit() {
+    drivebaseMecanum.setDrive(0, 0, 0);
   }
 
   @Override

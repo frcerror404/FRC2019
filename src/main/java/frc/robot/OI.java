@@ -17,14 +17,12 @@ public class OI {
 
 
   public static final double JOY_DEADZONE=0.05;
-  public LogitechExtreme Player1 = new LogitechExtreme(0);
+  public LogitechController Player1 = new LogitechController(0);
   public LogitechController Player2 = new LogitechController(1);
   Button groundIntakeBack = new JoystickButton(Player2, 2),
           groundIntakeFront = new JoystickButton(Player2, 4),
           intakeIn = new JoystickButton(Player2, 5),
           intakeOut = new JoystickButton(Player2, 6);
-         //armDown = new JoystickButton(Player2, 2),
-         //armUp = new JoystickButton(Player2, 1);
          // Add Wrist
 
   public OI(){
