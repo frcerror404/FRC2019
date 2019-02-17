@@ -7,6 +7,9 @@
 
 package frc.robot.subsystems;
 
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.commands.MecanumDriveCommand;
@@ -15,15 +18,14 @@ import frc.robot.commands.MecanumDriveCommand;
 
 public class DrivebaseMecanum extends Subsystem {
 
-  Spark mFrontLeft = new Spark(1);
-  Spark mFrontRight = new Spark(0);
-  Spark mBackLeft = new Spark(3);
-  Spark mBackRight = new Spark(2);
+  CANSparkMax mFrontLeft = new CANSparkMax(8, MotorType.kBrushless);
+  CANSparkMax mFrontRight = new CANSparkMax(0, MotorType.kBrushless);
+  CANSparkMax mBackLeft = new CANSparkMax(10, MotorType.kBrushless);
+  CANSparkMax mBackRight = new CANSparkMax(12, MotorType.kBrushless);
   edu.wpi.first.wpilibj.drive.MecanumDrive drive = new edu.wpi.first.wpilibj.drive.MecanumDrive(mFrontLeft, mBackLeft, mFrontRight, mBackRight);
 
 
   public DrivebaseMecanum() {
-    drive.setRightSideInverted(drive.isRightSideInverted());
   }
 
   public void setDrive(double x, double y, double z) {

@@ -22,13 +22,16 @@ public class Elevator extends Subsystem implements PIDOutput{
   /**
    * Elevator motors
    */
-
   public VictorSPX mElevator = new VictorSPX(1);
+  public VictorSPX mElevatorFollower = new VictorSPX(2);
 
-  //public final PIDController pidcontroller;
+  /**
+   * PID Variables
+   */
 
   public Elevator() {
-    //pidcontroller = new PIDController(0, 0, 0, source, this);
+    mElevatorFollower.follow(mElevator);
+    mElevator.getSelectedSensorPosition(0);
   }
 
   @Override
@@ -44,4 +47,5 @@ public class Elevator extends Subsystem implements PIDOutput{
   public void pidWrite(double output) {
     this.mElevator.set(ControlMode.PercentOutput, output);
   }
+
 }

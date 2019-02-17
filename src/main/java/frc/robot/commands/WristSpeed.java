@@ -14,7 +14,7 @@ public class WristSpeed extends Command {
   double speed = 0;
   public WristSpeed(double speed) {
     this.speed = speed;
-    requires(Robot.wrist);
+    //requires(Robot.wrist);
   }
 
   // Called just before this Command runs the first time
@@ -25,7 +25,7 @@ public class WristSpeed extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.wrist.WristSpeed(this.speed);
+    //Robot.wrist.WristSpeed(this.speed);
   }
 
   // Make this return true when this Command no longer needs to run execute()

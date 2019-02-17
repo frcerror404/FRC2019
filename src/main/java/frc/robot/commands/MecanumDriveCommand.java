@@ -12,6 +12,7 @@ import frc.robot.Robot;
 
 public class MecanumDriveCommand extends Command {
   public MecanumDriveCommand() {
+    requires(Robot.drivebaseMecanum);
   }
 
   @Override

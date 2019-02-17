@@ -11,6 +11,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
+import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import frc.robot.Robot;
 import frc.robot.commands.ElevatorMotorSpeed;
@@ -35,7 +36,7 @@ public class ElevatorPID extends PIDSubsystem {
     setAbsoluteTolerance(0.05);
     getPIDController().setContinuous(false);
     setInputRange(0, 1000);
-    this.mElevator.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
+    this.mElevator.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 10);
   }
 
   @Override

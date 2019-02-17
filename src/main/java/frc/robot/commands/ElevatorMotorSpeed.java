@@ -17,7 +17,7 @@ public class ElevatorMotorSpeed extends Command {
 
   public ElevatorMotorSpeed(double speed) {
     this.speed = speed;
-    requires(Robot.elevator);
+    //requires(Robot.elevator);
   }
 
   // Called just before this Command runs the first time
@@ -28,7 +28,7 @@ public class ElevatorMotorSpeed extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.elevator.mElevator.set(ControlMode.PercentOutput, 0);
+    //Robot.elevator.mElevator.set(ControlMode.PercentOutput, 0);
   }
 
   // Make this return true when this Command no longer needs to run execute()

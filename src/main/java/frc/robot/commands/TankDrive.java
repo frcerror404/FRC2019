@@ -12,7 +12,7 @@ import frc.robot.Robot;
 
 public class TankDrive extends Command {
   public TankDrive() {
-    requires(Robot.drivebase);
+    //requires(Robot.drivebase);
   }
 
   protected void initialize() {
@@ -20,7 +20,7 @@ public class TankDrive extends Command {
 
   protected void execute() {
 
-    Robot.drivebase.setRaw(Robot.oi.Player1.getNormalizedX(), Robot.oi.Player1.getNormalizedY(), Robot.oi.Player1.getNormalizedZ());
+    //Robot.drivebase.setRaw(Robot.oi.Player1.getNormalizedX(), Robot.oi.Player1.getNormalizedY(), Robot.oi.Player1.getNormalizedZ());
   }
 
   protected boolean isFinished() {

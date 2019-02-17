@@ -21,18 +21,18 @@ import frc.robot.subsystems.Wrist;
 public class Robot extends TimedRobot {
 
   public static OI oi;
-  public static Drivebase drivebase;
-  public static DrivebaseMecanum drivebaseMecanum = new DrivebaseMecanum();
+  //public static Drivebase drivebase;
+  public static DrivebaseMecanum drivebaseMecanum;
   public static Claw claw = new Claw();
-  public static Elevator elevator = new Elevator();
-  public static Wrist wrist = new Wrist();
+  //public static Elevator elevator = new Elevator();
+  //public static Wrist wrist = new Wrist();
   public static GroundIntakeFront groundintakefront = new GroundIntakeFront();
   public static FrontIntakeLift frontintakelift = new FrontIntakeLift();
 
   @Override
   public void robotInit() {
     oi = new OI();
-    drivebase = new Drivebase();
+    drivebaseMecanum = new DrivebaseMecanum();
   }
 
   @Override
