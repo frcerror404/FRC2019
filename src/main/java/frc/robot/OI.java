@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.models.LogitechController;
 import frc.robot.models.LogitechExtreme;
 import frc.robot.commands.*;
+import frc.robot.models.Poses;
 
 public class OI {
 
@@ -19,21 +20,15 @@ public class OI {
   public static final double JOY_DEADZONE=0.05;
   public LogitechController Player1 = new LogitechController(0);
   public LogitechController Player2 = new LogitechController(1);
-  Button groundIntakeBack = new JoystickButton(Player2, 2),
-          groundIntakeFront = new JoystickButton(Player2, 4),
-          intakeIn = new JoystickButton(Player2, 5),
-          intakeOut = new JoystickButton(Player2, 6);
+  Button GroundPose = new JoystickButton(Player2, 0),
+         Level2Pose = new JoystickButton(Player2, 1),
+         Level3Pose = new JoystickButton(Player2, 3);
          // Add Wrist
 
-  public OI(){
-    intakeIn.whenPressed(new ClawIntakeSpeed(0.4));
-    intakeIn.whenReleased(new ClawIntakeSpeed(0.0));
-    intakeOut.whenPressed(new ClawIntakeSpeed(-0.4));
-    intakeOut.whenReleased(new ClawIntakeSpeed(0.0));
-    groundIntakeBack.whenPressed(new GroundIntakeSpeed(0.4));
-    groundIntakeBack.whenReleased(new GroundIntakeSpeed(0.0));
-    groundIntakeFront.whenPressed(new GroundIntakeSpeed(0.4));
-    groundIntakeFront.whenPressed(new GroundIntakeSpeed(0.0));
+  public OI() {
+    this.GroundPose.whenPressed(new Pose(Poses.GROUND));
+    this.Level2Pose.whenPressed(new Pose(Poses.LEVEL2));
+    this.Level3Pose.whenPressed(new Pose(Poses.LEVEL3));
   }
 }
   

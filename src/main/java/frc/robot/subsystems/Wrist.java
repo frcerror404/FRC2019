@@ -16,21 +16,39 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * Add your docs here.
  */
 public class Wrist extends Subsystem {
-  TalonSRX mWrist = new TalonSRX(13);
+  private TalonSRX mWrist = new TalonSRX(13);
+
+  public Wrist() {
+    this.mWrist.config_kP(0, 1.3);
+    this.mWrist.config_kI(0, 0.00025);
+    this.mWrist.config_kD(0, 200.0);
+    this.mWrist.config_kF(0, 0.0);
+    this.mWrist.configMaxIntegralAccumulator(0, 100.00);
+    this.mWrist.configClosedLoopPeriod(0, 1);
+    this.mWrist.configClosedloopRamp(0.1);
+
+    this.mWrist.configForwardSoftLimitEnable(true);
+    this.mWrist.configReverseSoftLimitEnable(true);
+    this.mWrist.configForwardSoftLimitThreshold(3700);
+    this.mWrist.configReverseSoftLimitThreshold(-4000);
+  }
 
   @Override
   public void initDefaultCommand() {
-    mWrist.config_kP(0, 1.3);
-    mWrist.config_kI(0, 0.00025);
-    mWrist.config_kD(0, 200.0);
-    mWrist.config_kF(0, 0.0);
-    mWrist.configMaxIntegralAccumulator(0, 100.00);
-    mWrist.configClosedLoopPeriod(0, 1);
-    mWrist.configClosedloopRamp(0.1);
+    
   }
 
-  public void WristSpeed(double speed) {
-    mWrist.set(ControlMode.PercentOutput, speed);
+  public void setWristSpeed(double speed) {
+    this.mWrist.set(ControlMode.PercentOutput, speed);
   }
+
+  public void setWristPosition(int position) {
+    this.mWrist.set(ControlMode.Position, position);
+  }
+
+  public int getPIDError() {
+    return this.mWrist.getClosedLoopError();
+  }
+
 
 }

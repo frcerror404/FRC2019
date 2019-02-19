@@ -19,8 +19,8 @@ public class Elevator extends Subsystem{
   /**
    * Elevator motors
    */
-  public TalonSRX mElevator = new TalonSRX(4);
-  public TalonSRX mElevatorFollower = new TalonSRX(5);
+  private TalonSRX mElevator = new TalonSRX(4);
+  private TalonSRX mElevatorFollower = new TalonSRX(5);
 
   /**
    * PID Variables
@@ -28,21 +28,35 @@ public class Elevator extends Subsystem{
 
   public Elevator() {
     mElevatorFollower.follow(mElevator);
+    this.mElevator.config_kP(0, 0.040700);   // (slotID, value)
+    this.mElevator.config_kI(0, 0.000012);
+    this.mElevator.config_kD(0, 0.0);
+    this.mElevator.config_kF(0, 0.0);
+    this.mElevator.configClosedLoopPeriod(0, 1);
+    this.mElevator.configClosedloopRamp(0.15);
+
+    this.mElevator.configForwardSoftLimitEnable(true);
+    this.mElevator.configReverseSoftLimitEnable(true);
+    this.mElevator.configReverseSoftLimitThreshold(0);
+    this.mElevator.configForwardSoftLimitThreshold(60000);
   }
 
   @Override
   public void initDefaultCommand() {
     //setDefaultCommand(new ElevatorMotorSpeed(0));
-    mElevator.config_kP(0, 0.040700);   // (slotID, value)
-    mElevator.config_kI(0, 0.000012);
-    mElevator.config_kD(0, 0.0);
-    mElevator.config_kF(0, 0.0);
-    mElevator.configClosedLoopPeriod(0, 1);
-    mElevator.configClosedloopRamp(0.15);
   }
 
-  public void ElevatorMotorSpeed(double speed) {
+  public void setElevatorMotorSpeed(double speed) {
     this.mElevator.set(ControlMode.PercentOutput, speed);
   }
+
+  public void setElevatorPosition(int position) {
+    this.mElevator.set(ControlMode.Position, position);
+  }
+
+  public int getPIDError() {
+    return this.mElevator.getClosedLoopError();
+  }
+
 
 }

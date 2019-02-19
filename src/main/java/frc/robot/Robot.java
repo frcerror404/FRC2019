@@ -9,11 +9,11 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.DrivebaseMecanum;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.FrontIntakeLift;
 import frc.robot.subsystems.GroundIntakeFront;
+import frc.robot.commands.WristPosition;
 import frc.robot.subsystems.Claw;
 import frc.robot.subsystems.Wrist;
 
@@ -64,6 +64,13 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
+    
+    if(oi.Player2.getPOV() == 0) {
+      Scheduler.getInstance().add(new WristPosition(2000));
+    } else if (oi.Player2.getPOV() == 90) {
+      Scheduler.getInstance().add(new WristPosition(0));
+    }
+    
     Scheduler.getInstance().run();
   }
 
