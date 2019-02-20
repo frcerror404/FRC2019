@@ -8,28 +8,32 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.InvertType;
+import com.ctre.phoenix.motorcontrol.FollowerType;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.ctre.phoenix.motorcontrol.InvertType;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.commands.ClawIntakeSpeed;;
 
+/**
+ * Add your docs here.
+ */
 public class Claw extends Subsystem {
-  VictorSPX mLeft = new VictorSPX(1);
-  VictorSPX mRight = new VictorSPX(2);
+  // Put methods for controlling this subsystem
+  // here. Call these from Commands.
+  VictorSPX m_Motor1 = new VictorSPX(6);
+  VictorSPX m_Motor2 = new VictorSPX(7);
 
   public Claw() {
-    this.mLeft.follow(this.mRight);
-    this.mLeft.setInverted(InvertType.OpposeMaster);
+    this.m_Motor2.follow(this.m_Motor1, FollowerType.PercentOutput);
+    this.m_Motor2.setInverted(InvertType.OpposeMaster);
   }
 
   @Override
   public void initDefaultCommand() {
-    setDefaultCommand(new ClawIntakeSpeed(0));
+    
   }
 
-  public void ClawIntakeSpeed(double intakeSpeed){
-    this.mRight.set(ControlMode.PercentOutput, intakeSpeed);
+  public void setClawIntakeSpeed(double speed) {
+    this.m_Motor1.set(ControlMode.PercentOutput, speed);
   }
-
 }

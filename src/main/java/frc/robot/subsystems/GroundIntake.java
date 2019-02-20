@@ -7,27 +7,33 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.commands.LiftSpeed;
 
 /**
  * Add your docs here.
  */
-
- // NEEDS TO BE PID
-public class FrontIntakeLift extends Subsystem {
-  CANSparkMax mFrontIntakeLift = new CANSparkMax(1, MotorType.kBrushless);
+public class GroundIntake extends Subsystem {
+  // Put methods for controlling this subsystem
+  // here. Call these from Commands.
+  TalonSRX mRollers = new TalonSRX(3);
+  CANSparkMax mArm = new CANSparkMax(1, MotorType.kBrushless);
 
   @Override
   public void initDefaultCommand() {
-    setDefaultCommand(new LiftSpeed(0));
+    // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
   }
 
-  public void LiftSpeed(double speed) {
-    this.mFrontIntakeLift.set(speed);
+  public void setRollerSpeed(double speed) {
+    mRollers.set(ControlMode.PercentOutput, speed);
   }
 
+  public void setArmSpeed(double speed) {
+    mArm.set(speed);
+  }
 }

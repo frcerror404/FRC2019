@@ -14,7 +14,7 @@ public class LogitechController extends Joystick {
     }
 
     public final double getNormalizedRightY() {
-        double value = -this.getRawAxis(5);
+        double value = this.getRawAxis(5);
         return value;
     }
 

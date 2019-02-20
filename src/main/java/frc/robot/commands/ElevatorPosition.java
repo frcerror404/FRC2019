@@ -18,6 +18,11 @@ public class ElevatorPosition extends Command {
     requires(Robot.elevator);
     this.mPosition = position;
   }
+
+  public ElevatorPosition() {
+    requires(Robot.elevator);
+    this.mPosition = Robot.elevator.getPosition();
+  }
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {

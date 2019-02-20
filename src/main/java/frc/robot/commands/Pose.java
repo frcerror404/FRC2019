@@ -27,11 +27,11 @@ public class Pose extends CommandGroup {
 
     switch(pose) {
       case GROUND:
-        elevatorPosition = 0;
+        elevatorPosition = 1001;
         wristPosition = -3000;
         break;
       case LEVEL2:
-        elevatorPosition = 45000;
+        elevatorPosition = 30000;
         wristPosition = -2000;
         break;
       case LEVEL3:

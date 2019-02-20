@@ -10,12 +10,14 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class LiftSpeed extends Command {
-  double speed = 0.0;
+public class RollerSpeed extends Command {
 
-  public LiftSpeed(double speed) {
-    this.speed = speed;
-    //requires(Robot.frontintakelift);
+  double mSpeed = 0.0;
+
+  public RollerSpeed(double speed) {
+    // Use requires() here to declare subsystem dependencies
+    requires(Robot.intake);
+    this.mSpeed = speed;
   }
 
   // Called just before this Command runs the first time
@@ -26,7 +28,7 @@ public class LiftSpeed extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //Robot.frontintakelift.LiftSpeed(this.speed);
+    Robot.intake.setRollerSpeed(this.mSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -50,5 +50,9 @@ public class Wrist extends Subsystem {
     return this.mWrist.getClosedLoopError();
   }
 
+  public void zeroWrist() {
+    this.mWrist.setSelectedSensorPosition(0);
+  }
+
 
 }

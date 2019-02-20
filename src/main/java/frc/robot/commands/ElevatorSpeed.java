@@ -6,16 +6,15 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.commands;
-
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class GroundIntakeSpeed extends Command {
+public class ElevatorSpeed extends Command {
   double speed = 0.0;
 
-  public GroundIntakeSpeed(double speed) {
+  public ElevatorSpeed(double speed) {
     this.speed = speed;
-    requires(Robot.groundintakefront);
+    requires(Robot.elevator);
   }
 
   // Called just before this Command runs the first time
@@ -26,13 +25,13 @@ public class GroundIntakeSpeed extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.groundintakefront.GroundIntakeSpeed(this.speed);
+    Robot.elevator.setElevatorMotorSpeed(this.speed);;
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true

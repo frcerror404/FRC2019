@@ -21,7 +21,7 @@ public class MecanumDriveCommand extends Command {
 
   @Override
   protected void execute() {
-    Robot.drivebaseMecanum.setDrive(Robot.oi.Player1.getNormalizedLeftX(), Robot.oi.Player1.getNormalizedLeftY(),
+    Robot.drivebaseMecanum.setDrive(Robot.oi.Player1.getNormalizedLeftX(), -Robot.oi.Player1.getNormalizedLeftY(),
                                     Robot.oi.Player1.getNormalizedRightX());
   }
 

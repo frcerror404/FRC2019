@@ -8,11 +8,13 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Joystick.AxisType;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.DrivebaseMecanum;
 import frc.robot.subsystems.Elevator;
-import frc.robot.subsystems.FrontIntakeLift;
-import frc.robot.subsystems.GroundIntakeFront;
+import frc.robot.subsystems.GroundIntake;
+import frc.robot.commands.ElevatorPosition;
+import frc.robot.commands.ElevatorSpeed;
 import frc.robot.commands.WristPosition;
 import frc.robot.subsystems.Claw;
 import frc.robot.subsystems.Wrist;
@@ -26,13 +28,16 @@ public class Robot extends TimedRobot {
   public static Claw claw = new Claw();
   public static Elevator elevator = new Elevator();
   public static Wrist wrist = new Wrist();
-  public static GroundIntakeFront groundintakefront = new GroundIntakeFront();
-  public static FrontIntakeLift frontintakelift = new FrontIntakeLift();
+  public static GroundIntake intake = new GroundIntake();
+
+  boolean _manualElevator = false;
 
   @Override
   public void robotInit() {
     oi = new OI();
     drivebaseMecanum = new DrivebaseMecanum();
+    wrist.zeroWrist();
+    elevator.zeroElevator();
   }
 
   @Override
@@ -66,9 +71,38 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     
     if(oi.Player2.getPOV() == 0) {
-      Scheduler.getInstance().add(new WristPosition(2000));
+      Scheduler.getInstance().add(new WristPosition(0)); // Forward
     } else if (oi.Player2.getPOV() == 90) {
-      Scheduler.getInstance().add(new WristPosition(0));
+      Scheduler.getInstance().add(new WristPosition(-2000)); // Upwards
+    } else if (oi.Player2.getPOV() == 270) {
+      Scheduler.getInstance().add(new WristPosition(2000)); // Reverse
+    } else if (oi.Player2.getPOV() == 135) {
+      Scheduler.getInstance().add(new WristPosition(3500));
+    } else if (oi.Player2.getPOV() == 225) {
+      Scheduler.getInstance().add(new WristPosition(-3500));
+    }
+
+
+    // Right trigger sends Elevator up
+    if(oi.Player2.getRawAxis(3) > .1) {
+      this._manualElevator = true;
+      Scheduler.getInstance().add(new ElevatorSpeed(oi.Player2.getRawAxis(3)));
+    } else {
+      if(this._manualElevator) {
+        Scheduler.getInstance().add(new ElevatorPosition());
+        this._manualElevator = false;
+      }
+    }
+
+    //Left Trigger sends Elevator down
+    if(oi.Player2.getRawAxis(2) > .1) {
+      this._manualElevator = true;
+      Scheduler.getInstance().add(new ElevatorSpeed(-oi.Player2.getRawAxis(2)));
+    } else {
+      if(this._manualElevator) {
+        Scheduler.getInstance().add(new ElevatorPosition());
+        this._manualElevator = false;
+      }
     }
     
     Scheduler.getInstance().run();

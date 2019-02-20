@@ -28,7 +28,7 @@ public class Elevator extends Subsystem{
 
   public Elevator() {
     mElevatorFollower.follow(mElevator);
-    this.mElevator.config_kP(0, 0.040700);   // (slotID, value)
+    this.mElevator.config_kP(0, 0.075700);   // (slotID, value)
     this.mElevator.config_kI(0, 0.000012);
     this.mElevator.config_kD(0, 0.0);
     this.mElevator.config_kF(0, 0.0);
@@ -37,8 +37,8 @@ public class Elevator extends Subsystem{
 
     this.mElevator.configForwardSoftLimitEnable(true);
     this.mElevator.configReverseSoftLimitEnable(true);
-    this.mElevator.configReverseSoftLimitThreshold(0);
-    this.mElevator.configForwardSoftLimitThreshold(60000);
+    this.mElevator.configReverseSoftLimitThreshold(1000);
+    this.mElevator.configForwardSoftLimitThreshold(78750);
   }
 
   @Override
@@ -58,5 +58,11 @@ public class Elevator extends Subsystem{
     return this.mElevator.getClosedLoopError();
   }
 
+  public int getPosition() {
+    return this.mElevator.getSelectedSensorPosition();
+  }
 
+  public void zeroElevator() {
+    this.mElevator.setSelectedSensorPosition(0);
+  }
 }

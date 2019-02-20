@@ -7,17 +7,17 @@
 
 package frc.robot.commands;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class ElevatorMotorSpeed extends Command {
-  double speed = 0.0;
+public class ArmSpeed extends Command {
 
-  public ElevatorMotorSpeed(double speed) {
-    this.speed = speed;
-    requires(Robot.elevator);
+  double mSpeed = 0.0;
+
+  public ArmSpeed(double speed) {
+    // Use requires() here to declare subsystem dependencies
+    requires(Robot.intake);
+    this.mSpeed = speed;
   }
 
   // Called just before this Command runs the first time
@@ -28,13 +28,13 @@ public class ElevatorMotorSpeed extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.elevator.setElevatorMotorSpeed(this.speed);;
+    Robot.intake.setArmSpeed(this.mSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return true;
+    return false;
   }
 
   // Called once after isFinished returns true
