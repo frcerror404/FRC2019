@@ -35,9 +35,9 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     oi = new OI();
-    drivebaseMecanum = new DrivebaseMecanum();
     wrist.zeroWrist();
     elevator.zeroElevator();
+    drivebaseMecanum = new DrivebaseMecanum();
   }
 
   @Override

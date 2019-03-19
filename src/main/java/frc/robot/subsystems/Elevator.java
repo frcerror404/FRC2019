@@ -28,8 +28,8 @@ public class Elevator extends Subsystem{
 
   public Elevator() {
     mElevatorFollower.follow(mElevator);
-    this.mElevator.config_kP(0, 0.075700);   // (slotID, value)
-    this.mElevator.config_kI(0, 0.000012);
+    this.mElevator.config_kP(0, 0.076300);   // (slotID, value)
+    this.mElevator.config_kI(0, 0.000010);
     this.mElevator.config_kD(0, 0.0);
     this.mElevator.config_kF(0, 0.0);
     this.mElevator.configClosedLoopPeriod(0, 1);

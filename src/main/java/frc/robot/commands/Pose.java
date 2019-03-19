@@ -31,12 +31,12 @@ public class Pose extends CommandGroup {
         wristPosition = -3000;
         break;
       case LEVEL2:
-        elevatorPosition = 30000;
-        wristPosition = -2000;
+        elevatorPosition = 25000;
+        wristPosition = -2500;
         break;
       case LEVEL3:
-        elevatorPosition = 60000;
-        wristPosition = -2000;
+        elevatorPosition = 58000;
+        wristPosition = -2500;
         break;
       case PACKAGE:
         elevatorPosition = 0;

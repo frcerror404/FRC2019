@@ -9,23 +9,25 @@ package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-
-import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import frc.robot.commands.MecanumDriveCommand;
 
 
 
 public class DrivebaseMecanum extends Subsystem {
 
-  CANSparkMax mFrontLeft = new CANSparkMax(8, MotorType.kBrushless);
-  CANSparkMax mFrontRight = new CANSparkMax(0, MotorType.kBrushless);
-  CANSparkMax mBackLeft = new CANSparkMax(10, MotorType.kBrushless);
-  CANSparkMax mBackRight = new CANSparkMax(12, MotorType.kBrushless);
-  edu.wpi.first.wpilibj.drive.MecanumDrive drive = new edu.wpi.first.wpilibj.drive.MecanumDrive(mFrontLeft, mBackLeft, mFrontRight, mBackRight);
+  CANSparkMax mFrontLeft, mFrontRight, mBackLeft, mBackRight;
+  MecanumDrive drive;
 
 
   public DrivebaseMecanum() {
+    this.mFrontLeft = new CANSparkMax(8, MotorType.kBrushless);
+    this.mFrontRight = new CANSparkMax(15, MotorType.kBrushless);
+    this.mBackLeft = new CANSparkMax(10, MotorType.kBrushless);
+    this.mBackRight = new CANSparkMax(12, MotorType.kBrushless);
+    drive = new MecanumDrive(this.mFrontLeft, this.mBackLeft, this.mFrontRight, this.mBackRight);
+    //mFrontRight.setInverted(true);
   }
 
   public void setDrive(double x, double y, double z) {
