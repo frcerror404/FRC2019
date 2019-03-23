@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
@@ -22,6 +23,12 @@ public class GroundIntake extends Subsystem {
   // here. Call these from Commands.
   TalonSRX mRollers = new TalonSRX(3);
   CANSparkMax mArm = new CANSparkMax(1, MotorType.kBrushless);
+  CANPIDController mPidController;
+
+  public GroundIntake(){
+    this.mPidController = mArm.getPIDController();
+    
+  }
 
   @Override
   public void initDefaultCommand() {
@@ -35,5 +42,9 @@ public class GroundIntake extends Subsystem {
 
   public void setArmSpeed(double speed) {
     mArm.set(speed);
+  }
+
+  public double getPosition() {
+    return mArm.getEncoder().getPosition();
   }
 }
