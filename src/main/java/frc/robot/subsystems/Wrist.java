@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -19,7 +20,8 @@ public class Wrist extends Subsystem {
   private TalonSRX mWrist = new TalonSRX(13);
 
   public Wrist() {
-    this.mWrist.config_kP(0, 1.3);
+    this.mWrist.setNeutralMode(NeutralMode.Brake);
+    /*this.mWrist.config_kP(0, 1.3);
     this.mWrist.config_kI(0, 0.00025);
     this.mWrist.config_kD(0, 200.0);
     this.mWrist.config_kF(0, 0.0);
@@ -30,7 +32,8 @@ public class Wrist extends Subsystem {
     this.mWrist.configForwardSoftLimitEnable(true);
     this.mWrist.configReverseSoftLimitEnable(true);
     this.mWrist.configForwardSoftLimitThreshold(3700);
-    this.mWrist.configReverseSoftLimitThreshold(-4000);
+    this.mWrist.configReverseSoftLimitThreshold(-4000);*/
+
   }
 
   @Override
@@ -43,7 +46,7 @@ public class Wrist extends Subsystem {
   }
 
   public void setWristPosition(int position) {
-    this.mWrist.set(ControlMode.Position, position);
+    //this.mWrist.set(ControlMode.Position, position);
   }
 
   public int getPIDError() {

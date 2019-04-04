@@ -31,11 +31,11 @@ public class Pose extends CommandGroup {
         wristPosition = -3000;
         break;
       case LEVEL2:
-        elevatorPosition = 25000;
+        elevatorPosition = 22000;
         wristPosition = -2500;
         break;
       case LEVEL3:
-        elevatorPosition = 58000;
+        elevatorPosition = 53000;
         wristPosition = -2500;
         break;
       case PACKAGE:
@@ -46,6 +46,6 @@ public class Pose extends CommandGroup {
 
   
     addParallel(new ElevatorPosition(elevatorPosition));
-    addParallel(new WristPosition(wristPosition));
+    //addParallel(new WristPosition(wristPosition));
   }
 }

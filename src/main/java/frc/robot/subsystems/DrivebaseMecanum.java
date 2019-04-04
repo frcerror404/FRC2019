@@ -31,7 +31,7 @@ public class DrivebaseMecanum extends Subsystem {
   }
 
   public void setDrive(double x, double y, double z) {
-    drive.driveCartesian(-x, y, z);
+    drive.driveCartesian(-x*.60, y, z * .65);
   }
 
   @Override

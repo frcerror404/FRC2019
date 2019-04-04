@@ -26,7 +26,9 @@ public class GroundIntake extends Subsystem {
   CANPIDController mPidController;
 
   public GroundIntake(){
-    this.mPidController = mArm.getPIDController();
+    //this.mPidController = mArm.getPIDController();
+    this.mArm.setSmartCurrentLimit(20, 60);
+    //this.mArm.soft
     
   }
 

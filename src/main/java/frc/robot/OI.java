@@ -42,10 +42,10 @@ public class OI {
     this.ClawOut.whenPressed(new ClawIntakeSpeed(-1.0));
     this.ClawOut.whenReleased(new ClawIntakeSpeed(0.0));
 
-    this.IntakeUp.whenPressed(new ArmSpeed(.75));
+    /*this.IntakeUp.whenPressed(new ArmSpeed(.75));
     this.IntakeUp.whenReleased(new ArmSpeed(0.0));
     this.IntakeDown.whenPressed(new ArmSpeed(-.75));
-    this.IntakeDown.whenReleased(new ArmSpeed(0.0));
+    this.IntakeDown.whenReleased(new ArmSpeed(0.0));*/
 
     this.IntakeInwards.whenPressed(new RollerSpeed(1.0));
     this.IntakeInwards.whenReleased(new RollerSpeed(0.0));
