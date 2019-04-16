@@ -20,6 +20,12 @@ public class DrivebaseMecanum extends Subsystem {
   CANSparkMax mFrontLeft, mFrontRight, mBackLeft, mBackRight;
   MecanumDrive drive;
 
+  /**
+   * Speed Multplier. This should be 1.0 for full speed
+   * .7 = 70% speed
+   */
+  double speedMultiplier = 0.4;
+
 
   public DrivebaseMecanum() {
     this.mFrontLeft = new CANSparkMax(8, MotorType.kBrushless);
@@ -31,7 +37,11 @@ public class DrivebaseMecanum extends Subsystem {
   }
 
   public void setDrive(double x, double y, double z) {
-    drive.driveCartesian(-x*.60, y, z * .65);
+    drive.driveCartesian(
+              -x*.60 * this.speedMultiplier, 
+              y * this.speedMultiplier, 
+              z * .65 * this.speedMultiplier
+              );
   }
 
   @Override

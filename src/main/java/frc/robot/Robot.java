@@ -111,9 +111,9 @@ public class Robot extends TimedRobot {
       }
     }*/
 
-    if(Math.abs(oi.Player1.getRawAxis(2)) > .5 ) {
+    if(Math.abs(oi.Player1.getRawAxis(2)) > .5 || Math.abs(oi.Player2.getRawAxis(2)) > .5) {
       Scheduler.getInstance().add(new ArmSpeed(.75));
-    } else if(Math.abs(oi.Player1.getRawAxis(3)) > .5 ) {
+    } else if(Math.abs(oi.Player1.getRawAxis(3)) > .5 || Math.abs(oi.Player2.getRawAxis(3)) > .5) {
       Scheduler.getInstance().add(new ArmSpeed(-.75));
     } else {
       Scheduler.getInstance().add(new ArmSpeed(0.0));
